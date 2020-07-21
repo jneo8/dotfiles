@@ -40,8 +40,8 @@ Plug 'vim-airline/vim-airline-themes'
 " completor.vim (https://github.com/maralla/completor.vim)
 Plug 'maralla/completor.vim'
 
-" vim-multiple-cursors
-Plug 'terryma/vim-multiple-cursors'
+" vim-visual-multi. Multiple cursors plugin for vim/neovim
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " farmergreg/vim-lastplace
 Plug 'farmergreg/vim-lastplace'
