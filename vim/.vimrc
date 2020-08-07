@@ -59,6 +59,9 @@ Plug 'editorconfig/editorconfig-vim'
 " Vim motion on speed!
 Plug 'easymotion/vim-easymotion'
 
+" Vim syntax for TOML
+Plug 'cespare/vim-toml'
+
 
 "
 " Plug for markdown
