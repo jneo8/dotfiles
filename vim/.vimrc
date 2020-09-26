@@ -1,5 +1,6 @@
 " jneo8 vimrc (https://github.com/jneo8/vim_settings)
 
+
 " better backup, swap and undos storage (taken from fisa-vim-config)
 " Create folder if not exist.
 silent !mkdir -p ~/.vim/dirs/tmp > /dev/null 2>&1
@@ -18,7 +19,7 @@ set viminfo+=n~/.vim/dirs/viminfo
 call plug#begin('~/.vim/plugged')
 
 " Asynchronous Linter Engine
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
