@@ -51,7 +51,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git gcloud fzf kubectl pyenv rvm helm sbt tmux z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,10 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+# gvm
+source $HOME/.gvm/scripts/gvm
 
 # Git
 alias gs="git status"
@@ -95,5 +94,5 @@ alias glv="git log  --graph --all --decorate --stat"
 alias glvp="git log  --graph --all --decorate --stat -p"
 alias glv1="git log --oneline --graph --all --decorate --stat"
 
-# fzf
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# joplin
+alias joplind="joplin --profile ~/.config/joplin-desktop"
