@@ -7,7 +7,10 @@ PYTHON_VERSION ?= "3.8.6"
 install-mackup:  ## Install mackup with homebrew
 	brew install mackup
 
-PHONY: install-mackup
+cp-mackup-config:  ## Copy mackup config to ~/
+	cp ./.mackup.cfg ~/
+
+PHONY: install-mackup cp-mackup-config
 
 ##@ Application
 
