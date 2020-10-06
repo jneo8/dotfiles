@@ -7,19 +7,28 @@ PYTHON_VERSION ?= "3.8.6"
 install-mackup:  ## Install mackup with homebrew
 	brew install mackup
 
+PHONY: install-mackup
+
 ##@ Application
 
 apt-install: ## Run ./apt-install.sh
 	./apt-install.sh
 
+snap-install:  ## Run ./snap-install.sh
+	./snap-install.sh
+
 install-homebrew:
 	@bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	echo 'eval $$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
+
+PHONY: apt-install snap-install install-homebrew
 
 ##@ Terminal
 
 color-terminal:  ## Color terminal with goph
 	 export TERMINAL=gnome-terminal && $(SHELL) -c "$$(wget -qO- https://git.io/vQgMr)"
+
+PHONY: color-terminal
 
 ##@ Shell
 
@@ -27,6 +36,8 @@ install-oh-my-zsh:  ## Setup zsh
 	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 	cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 	sudo chsh -s /bin/zsh
+
+PHONY: install-oh-my-zsh
 
 ##@ Pyenv
 install-pyenv:  ## Install pyenv
@@ -38,6 +49,8 @@ pyenv-install-default-python:  ## Install default python
 
 python-install-basic-pkg:  ## Install basic package for python
 	pip install -U Commitizen
+
+.PHONY: install-pyenv pyenv-install-default-python python-install-basic-pkg
 
 ##@ Help
 
