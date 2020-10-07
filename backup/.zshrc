@@ -96,3 +96,5 @@ alias glv1="git log --oneline --graph --all --decorate --stat"
 
 # joplin
 alias joplind="joplin --profile ~/.config/joplin-desktop"
+
+[[ -s "/home/james/.gvm/scripts/gvm" ]] && source "/home/james/.gvm/scripts/gvm"

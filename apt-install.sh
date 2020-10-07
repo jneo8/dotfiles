@@ -56,3 +56,6 @@ install feh
 
 ## Language
 install gcin
+
+## gvm
+install bison

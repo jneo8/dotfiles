@@ -261,4 +261,4 @@ exec --no-startup-id compton -b
 exec --no-startup-id dropbox start
 ## Wallpaper && display output
 # exec --no-startup-id xrandr --output HDMI-1 --left-of VGA-1
-exec --no-startup-id sleep 2;feh --bg-fill /home/jameslin/Dropbox/Img/wallpapers/casey-horner-RmoWqDCqN2E-unsplash.jpg
+exec --no-startup-id sleep 2;feh --bg-fill ~/Dropbox/Img/wallpapers/casey-horner-RmoWqDCqN2E-unsplash.jpg

@@ -1,5 +1,6 @@
 SHELL := /bin/bash
 PYTHON_VERSION ?= "3.8.6"
+GO_VERSION ?= "go1.15.2"
 
 
 ##@ Mackup
@@ -54,6 +55,20 @@ python-install-basic-pkg:  ## Install basic package for python
 	pip install -U Commitizen
 
 .PHONY: install-pyenv pyenv-install-default-python python-install-basic-pkg
+
+##@ gvm
+
+install-gvm:  ## Install gvm
+	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+init-gvm:  ## Compiling Go 1.5+
+	gvm install go1.4 -B
+	${SHELL} -c "gvm use go1.4"
+	# export GOROOT_BOOTSTRAP=${GOROOT}
+	# gvm install ${GO_VERSION}
+
+PHONY: install-gvm
+
 
 ##@ Help
 
