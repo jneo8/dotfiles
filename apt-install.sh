@@ -53,3 +53,6 @@ install compton
 install alsa-utils
 install pavucontrol
 install feh
+
+## Language
+install gcin
