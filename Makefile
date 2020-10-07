@@ -61,13 +61,9 @@ python-install-basic-pkg:  ## Install basic package for python
 install-gvm:  ## Install gvm
 	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
-init-gvm:  ## Compiling Go 1.5+
-	gvm install go1.4 -B
-	${SHELL} -c "gvm use go1.4"
-	# export GOROOT_BOOTSTRAP=${GOROOT}
-	# gvm install ${GO_VERSION}
 
 PHONY: install-gvm
+
 
 
 ##@ Help

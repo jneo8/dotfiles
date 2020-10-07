@@ -59,3 +59,7 @@ install gcin
 
 ## gvm
 install bison
+
+## Nodejs
+install nodejs
+install npm

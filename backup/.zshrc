@@ -86,6 +86,7 @@ source $ZSH/oh-my-zsh.sh
 
 # gvm
 source $HOME/.gvm/scripts/gvm
+[[ -s "/home/james/.gvm/scripts/gvm" ]] && source "/home/james/.gvm/scripts/gvm"
 
 # Git
 alias gs="git status"
@@ -94,7 +95,3 @@ alias glv="git log  --graph --all --decorate --stat"
 alias glvp="git log  --graph --all --decorate --stat -p"
 alias glv1="git log --oneline --graph --all --decorate --stat"
 
-# joplin
-alias joplind="joplin --profile ~/.config/joplin-desktop"
-
-[[ -s "/home/james/.gvm/scripts/gvm" ]] && source "/home/james/.gvm/scripts/gvm"
