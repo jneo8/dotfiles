@@ -61,16 +61,28 @@ python-install-basic-pkg:  ## Install basic package for python
 install-gvm:  ## Install gvm
 	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
-
 PHONY: install-gvm
 
+##@ Wallpaper
 
+init-wallpaper:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/me.jpeg
+
+
+PHONY: init-wallpaper
+
+##@ i3
+
+install-i3-gaps:  ## Install i3-gaps from source
+	./install-i3-gaps.sh
+
+PHONY: install-i3-gaps
 
 ##@ Help
 
 .PHONY: help
 
 help:  ## Display this help
-		    @awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-0-9]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-0-9]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
 .DEFAULT_GOAL := help
