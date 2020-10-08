@@ -66,7 +66,7 @@ PHONY: install-gvm
 ##@ Wallpaper
 
 init-wallpaper:  ## Init wall paper with feh
-	feh --bg-fill ~/Dropbox/Img/wallpapers/me.jpeg
+	feh --bg-fill ~/Dropbox/Img/wallpapers/LuciferAngel.jpeg
 
 
 PHONY: init-wallpaper
