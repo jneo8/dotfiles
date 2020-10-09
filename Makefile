@@ -27,13 +27,6 @@ install-homebrew:
 
 PHONY: apt-install snap-install install-homebrew
 
-##@ Terminal
-
-color-terminal:  ## Color terminal with goph
-	 export TERMINAL=gnome-terminal && $(SHELL) -c "$$(wget -qO- https://git.io/vQgMr)"
-
-PHONY: color-terminal
-
 ##@ Shell
 
 install-oh-my-zsh:  ## Setup zsh
@@ -42,6 +35,13 @@ install-oh-my-zsh:  ## Setup zsh
 	sudo chsh -s /bin/zsh
 
 PHONY: install-oh-my-zsh
+
+##@ Terminal
+
+color-terminal:  ## Color terminal with goph
+	 export TERMINAL=gnome-terminal && $(SHELL) -c "$$(wget -qO- https://git.io/vQgMr)"
+
+PHONY: color-terminal
 
 ##@ Pyenv
 install-pyenv:  ## Install pyenv
