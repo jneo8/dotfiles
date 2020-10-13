@@ -152,7 +152,10 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " highlight Search cterm=bold ctermbg=220 ctermfg=27
 " highlight IncSearch cterm=bold ctermbg=220 ctermfg=27
 " highlight Visual cterm=bold ctermbg=220 ctermfg=27
-"
+
+let &t_TI = ""
+let &t_TE = ""
+
 
 "
 " End Basic Parameter setting
