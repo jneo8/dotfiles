@@ -67,6 +67,7 @@ install libsqlite3-dev
 install libncurses5-dev
 
 ## i3
+install i3
 install rofi
 install compton
 

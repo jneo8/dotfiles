@@ -52,6 +52,7 @@ gvm use go1.4
 export GOROOT_BOOTSTRAP=$GOROOT
 ## Change the version if you need
 gvm install go1.15.2
+gvm use go1.15.2 --default
 ```
 
 ## Change terminal color

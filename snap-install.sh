@@ -12,4 +12,3 @@ function install {
 }
 
 install spotify
-install joplin-james-carroll
