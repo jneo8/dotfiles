@@ -25,6 +25,9 @@ install-homebrew:
 	@bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	echo 'eval $$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
 
+install-calibre:  ## Install calibre https://calibre-ebook.com/download_linux
+	sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
 PHONY: apt-install snap-install install-homebrew
 
 ##@ Shell
