@@ -203,6 +203,10 @@ let g:airline#extensions#whitespace#enabled = 1
 " python highlighting
 let python_highlight_all = 1
 
+" python Black
+" Run Black on save
+autocmd BufWritePre *.py execute ':Black'
+
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 
