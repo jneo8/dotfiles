@@ -88,6 +88,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " vim Scala https://github.com/derekwyatt/vim-scala
 Plug 'derekwyatt/vim-scala'
 
+" The uncompromising Python code formatter https://github.com/psf/black/blob/master/plugin/black.vim
+Plug 'ambv/black'
+
 "
 " Some Plugin may useful ???
 "

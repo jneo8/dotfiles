@@ -45,6 +45,8 @@ install vim-nox
 install fzf
 install wget
 install llvm
+install imagemagick
+install tree
 
 ## Terminal
 install zsh
@@ -65,6 +67,7 @@ install libbz2-dev
 install libreadline-dev
 install libsqlite3-dev
 install libncurses5-dev
+install python3-venv
 
 ## i3
 install i3
@@ -106,4 +109,3 @@ install bison
 ## Nodejs
 install nodejs
 install npm
-
