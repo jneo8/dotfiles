@@ -55,9 +55,12 @@ pyenv-install-default-python:  ## Install default python
 	pyenv global $(PYTHON_VERSION)
 
 python-install-basic-pkg:  ## Install basic package for python
-	pip install -U Commitizen
+	pip install -U Commitizen flake8 flake8-docstrings
 
-.PHONY: install-pyenv pyenv-install-default-python python-install-basic-pkg
+install-poetry:  ## Install python package manager poetry
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+
+.PHONY: install-pyenv pyenv-install-default-python python-install-basic-pkg install-poetry
 
 ##@ gvm
 

@@ -39,6 +39,7 @@ make install-oh-my-zsh
 make install-pyenv
 make pyenv-install-default-python
 make python-install-basic-pkg
+make install-poetry
 
 make install-gvm
 ```

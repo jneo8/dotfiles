@@ -94,3 +94,5 @@ alias gl="git log --oneline --graph --all --decorate"
 alias glv="git log  --graph --all --decorate --stat"
 alias glvp="git log  --graph --all --decorate --stat -p"
 alias glv1="git log --oneline --graph --all --decorate --stat"
+
+export PATH="$HOME/.poetry/bin:$PATH"
