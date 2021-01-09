@@ -91,6 +91,10 @@ Plug 'derekwyatt/vim-scala'
 " The uncompromising Python code formatter https://github.com/psf/black/blob/master/plugin/black.vim
 Plug 'ambv/black'
 
+" Colorizer, color hex codes and color names
+Plug 'chrisbra/Colorizer'
+
+
 "
 " Some Plugin may useful ???
 "
