@@ -113,8 +113,8 @@ Plug 'chrisbra/Colorizer'
 " Theme, choose from https://github.com/rafi/awesome-vim-colorschemes
 "
 
-" Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'danilo-augusto/vim-afterglow', { 'as': 'afterglow' }
+Plug 'NLKNguyen/papercolor-theme' " required
+Plug 'jneo8/papercolor-jneo8'
 
 
 call plug#end()
@@ -145,15 +145,16 @@ set incsearch
 set background=dark
 
 " Setting afterglow theme
-let g:afterglow_blackout=1
-let g:afterglow_inherit_background=1
-colorscheme afterglow
+" let g:afterglow_blackout=1
+" let g:afterglow_inherit_background=1
+let g:PaperColor_Theme = 'jneo8'
+colorscheme PaperColor
 
 
 " highlight color
-set cursorline " highlight the whole current line
-highlight CursorLine cterm=NONE ctermbg=168 ctermfg=white guibg=darkblue ctermfg=white
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" set cursorline " highlight the whole current line
+" highlight CursorLine cterm=NONE ctermbg=168 ctermfg=white guibg=darkblue ctermfg=white
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " highlight Normal guibg=NONE ctermbg=NONE
 " highlight LineNr ctermfg=DarkGrey
 " highlight Search cterm=bold ctermbg=220 ctermfg=27
@@ -196,12 +197,21 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 :command NEF NERDTreeFocus
 
 " Airline
-set laststatus=2  " let airline appear all the time
+" set laststatus=2  " let airline appear all the time
 let g:airline_theme = 'term'
 set t_Co=256 " enable 256 colors in vim (if not set, vim-airline-theme might not show correctly)
 let g:airline_powerline_fonts = 1  " use poewrline-fonts
 let g:airline#extensions#tabline#enabled = 1 " Smarter tab line (https://github.com/vim-airline/vim-airline#smarter-tab-line)
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:bufferline_show_bufnr = 1
+let g:airline#extensions#tabline#formatter = 'default'
+
+
+" bufferline. super simple vim plugin to show the list of buffers in the command bar
+Plug 'bling/vim-bufferline'
 
 
 " python highlighting
@@ -218,3 +228,5 @@ let g:vim_markdown_folding_disabled = 1
 "
 " End Plug Parameter setting
 "
+
+" highlight SignColumn  guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
