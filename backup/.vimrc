@@ -38,6 +38,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" bufferline. super simple vim plugin to show the list of buffers in the command bar
+Plug 'bling/vim-bufferline'
+
 " completor.vim (https://github.com/maralla/completor.vim)
 Plug 'maralla/completor.vim'
 
@@ -129,6 +132,13 @@ set nocompatible
 set number
 set mouse+=a
 set backspace=indent,eol,start
+set t_Co=256 " enable 256 colors in vim (if not set, vim-airline-theme might not show correctly)
+
+" vim-devicons & encoding
+set encoding=utf-8  " The encoding displayed
+set fileencoding=utf-8  " The encoding written to file
+let &t_TI = ""
+let &t_TE = ""
 
 " Indentation & tab
 set autoindent nosmartindent  " auto/smart indent
@@ -151,20 +161,6 @@ let g:PaperColor_Theme = 'jneo8'
 colorscheme PaperColor
 
 
-" highlight color
-" set cursorline " highlight the whole current line
-" highlight CursorLine cterm=NONE ctermbg=168 ctermfg=white guibg=darkblue ctermfg=white
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
-" highlight Normal guibg=NONE ctermbg=NONE
-" highlight LineNr ctermfg=DarkGrey
-" highlight Search cterm=bold ctermbg=220 ctermfg=27
-" highlight IncSearch cterm=bold ctermbg=220 ctermfg=27
-" highlight Visual cterm=bold ctermbg=220 ctermfg=27
-
-let &t_TI = ""
-let &t_TE = ""
-
-
 "
 " End Basic Parameter setting
 "
@@ -173,9 +169,6 @@ let &t_TE = ""
 " Plug Parameter setting
 "
 
-" vim-devicons & encoding
-set encoding=utf-8  " The encoding displayed
-set fileencoding=utf-8  " The encoding written to file
 
 " ALE
 let g:ale_sign_column_always = 1
@@ -190,6 +183,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
+
 " NERDTree Auto open
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -198,20 +192,24 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Airline
 " set laststatus=2  " let airline appear all the time
-let g:airline_theme = 'term'
-set t_Co=256 " enable 256 colors in vim (if not set, vim-airline-theme might not show correctly)
+let g:airline_theme = 'base16_default'
 let g:airline_powerline_fonts = 1  " use poewrline-fonts
+" Airline's extensions whitespace
+let g:airline#extensions#whitespace#enabled = 1
+" Airline's extensions tabline
 let g:airline#extensions#tabline#enabled = 1 " Smarter tab line (https://github.com/vim-airline/vim-airline#smarter-tab-line)
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#bufferline#enabled = 1
+" Airline's extensions bufferine
+let g:airline#extensions#bufferline#enabled = 1 " Enable bufferline extensions
+let g:airline#extensions#bufferline#overwrite_variables = 1
+
+" bufferline
+let g:bufferline_echo = 1
 let g:bufferline_show_bufnr = 1
-let g:airline#extensions#tabline#formatter = 'default'
-
-
-" bufferline. super simple vim plugin to show the list of buffers in the command bar
-Plug 'bling/vim-bufferline'
 
 
 " python highlighting
@@ -224,9 +222,6 @@ autocmd BufWritePre *.py execute ':Black'
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 
-
 "
 " End Plug Parameter setting
 "
-
-" highlight SignColumn  guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
