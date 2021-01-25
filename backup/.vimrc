@@ -192,7 +192,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Airline
 " set laststatus=2  " let airline appear all the time
-let g:airline_theme = 'base16_default'
+let g:airline_theme = 'minimalist'
 let g:airline_powerline_fonts = 1  " use poewrline-fonts
 " Airline's extensions whitespace
 let g:airline#extensions#whitespace#enabled = 1
