@@ -38,9 +38,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" bufferline. super simple vim plugin to show the list of buffers in the command bar
-Plug 'bling/vim-bufferline'
-
 " completor.vim (https://github.com/maralla/completor.vim)
 Plug 'maralla/completor.vim'
 
@@ -203,14 +200,6 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-" Airline's extensions bufferine
-let g:airline#extensions#bufferline#enabled = 1 " Enable bufferline extensions
-let g:airline#extensions#bufferline#overwrite_variables = 1
-
-" bufferline
-let g:bufferline_echo = 1
-let g:bufferline_show_bufnr = 1
-
 
 " python highlighting
 let python_highlight_all = 1
