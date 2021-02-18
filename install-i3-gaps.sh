@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /tmp && \
-    git clone https://www.github.com/Airblader/i3 i3-gaps && \
+    git clone --depth 1 --branch 4.18.3 https://www.github.com/Airblader/i3 i3-gaps && \
     cd /tmp/i3-gaps && \
     # compile & install
     autoreconf --force --install && \
