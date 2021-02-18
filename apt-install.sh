@@ -95,6 +95,18 @@ install libxcb-xrm-dev
 install automake
 install libxcb-shape0-dev
 
+## polybar
+libxcb-xkb-dev
+libxcb-xrm-dev
+libxcb-cursor-dev
+libasound2-dev
+libpulse-dev
+i3-wm
+libjsoncpp-dev
+libmpdclient-dev
+libcurl4-openssl-dev
+libnl-genl-3-dev
+
 ## Media
 install alsa-utils
 install pavucontrol
