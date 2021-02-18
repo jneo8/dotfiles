@@ -109,3 +109,8 @@ install bison
 ## Nodejs
 install nodejs
 install npm
+
+## bluetooth
+install bluetooth
+install bluez
+install blueman
