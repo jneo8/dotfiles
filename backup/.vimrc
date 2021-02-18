@@ -89,7 +89,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'derekwyatt/vim-scala'
 
 " The uncompromising Python code formatter https://github.com/psf/black/blob/master/plugin/black.vim
-Plug 'ambv/black'
+Plug 'psf/black', {'branch': 'stable'}
 
 " Colorizer, color hex codes and color names
 Plug 'chrisbra/Colorizer'
