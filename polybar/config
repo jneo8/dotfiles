@@ -1,0 +1,156 @@
+[colors]
+light-red = #D95B5B
+light-green = #249824
+light-purple = #A44BA0
+
+menucol-yellow = #F7F272
+menucol-blue = #1771F1
+menucol-orange = #FFAF60
+menucol-red = #F85C50
+menucol-green = #77BD8B
+menucol-sealine = #00CF91
+menucol-purple = #9A76B3
+menucol-pink = #FF77BF
+menucol-deepblue = #6560FF
+menucol-lightblue = #60FFF7
+
+dark-green = #131
+dark-purple = #201134
+dark-gray = #333
+
+light = #eee
+dark = #111
+dark-red = #311
+gray = #999
+
+fav-purple = #6633FF
+royal-blue = #4169E1   
+
+
+[fonts]
+opensansreg = DroidSans:Regular:size=8
+opensanssemibold = DroidSans:SemiBold:size=8
+opensansbold = DroidSans:Bold:size=8
+opensansboldhigh = DroidSans:Bold:size=11
+opensansital = DroidSans:Italic:size=9
+xos = xos4\ Terminus:size=14;0
+nerd = TerminessTTF Nerd Font:size=12;0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/top]
+monitor = ${env:MONITOR:}
+enable-ipc = true
+bottom = false
+dock = false
+radius = 6.0
+offset-x = 0
+offset-y = 0
+height = 22
+width = 100%
+separator = "   "
+
+modules-left = i3
+modules-center = xwindow
+modules-right = memory date
+
+; i3
+override-redirect = false
+wm-restack = i3
+scroll-up = i3wm.wsnext
+scroll-down = i3wm.wsprev
+
+;List of fonts
+font-0 = ${fonts.opensansreg}
+font-1 = ${fonts.opensanssemibold}
+font-2 = ${fonts.opensansbold}
+font-3 = ${fonts.opensansital}
+font-4 = ${fonts.xos}
+font-5 = ${fonts.nerd}
+font-6 = ${fonts.opensansboldhigh}
+
+;color
+background = ${colors.dark}
+foreground = ${colors.light}
+
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+format = <label-state> <label-mode>
+
+label-dimmed-underline = ${colors.background}
+
+;On editing mode (resize for ex)
+label-mode = %mode%
+label-mode-background = ${colors.dark}
+label-mode-underline = ${colors.fav-purple}
+label-mode-padding = 2
+label-mode-font = 3
+
+; focus window
+label-focused = %index%
+label-focused-background = ${colors.royal-blue}
+label-focused-underline = ${colors.light-green}
+label-focused-padding = 3
+label-focused-font = 3
+
+; unfocus window
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.gray}
+label-unfocused-padding = 3
+label-unfocused-font = 3
+
+; visible window
+label-visible = %index%
+label-visible-background = ${colors.dark-gray}
+label-visible-underline = ${colors.light}
+label-visible-padding = 3
+label-visible-font = 3
+
+label-urgent = %index%
+label-urgent-background = ${colors.light-red}
+label-urgent-underline = ${colors.light}
+label-urgent-padding = 3
+label-urgent-font = 3
+
+
+[module/date]
+type = internal/date
+
+time = %H:%M:%S
+date = %A, %B %d
+date-alt = %A, %B %d, %Y
+time-alt = %H:%M:%S
+
+format-prefix = "   "
+format-padding = 2
+format-underline = ${colors.light}
+format-foreground = ${colors.light}
+interval = 5
+
+label = %date%, %time%
+label-font = 2
+label-foreground = ${colors.light}
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+format-padding = 2
+format-underline = ${colors.light}
+
+format-prefix = "  "
+format-prefix-foreground = ${colors.light}
+
+label = " %gb_used%"
+label-font = 3
