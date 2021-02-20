@@ -5,6 +5,7 @@
 cd /tmp && \
     git clone --depth 1 --branch 3.5.4 --recursive https://github.com/polybar/polybar.git && \
     cd /tmp/polybar && \
+    pyenv local system && \
     # compile & install
     mkdir build && \
     cd build && \
