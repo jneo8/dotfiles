@@ -84,6 +84,7 @@ install-i3-gaps:  ## Install i3-gaps from source
 
 install-polybar:  ## Install polybar
 	./install-polybar.sh
+	./install-zscroll.sh
 
 PHONY: install-i3-gaps install-polybar
 
