@@ -33,7 +33,7 @@ dark-red = #311
 gray = #999
 
 fav-purple = #6633FF
-royal-blue = #4169E1   
+royal-blue = #4169E1
 blue-jay = #2B547E
 
 
@@ -69,8 +69,8 @@ width = 100%
 separator = "   "
 
 ; modules settings
-modules-left = spotify spotify-prev spotify-play-pause spotify-next
-modules-center = i3
+modules-left = i3
+modules-center = spotify spotify-prev spotify-play-pause spotify-next
 modules-right = wired-network memory cpu date
 
 ; i3
@@ -186,7 +186,7 @@ format-disconnected = <label-disconnected>
 format-packetloss = <animation-packetloss> <label-connected>
 ; format-packetloss-underline = ${colors.light}
 
-label-connected = %local_ip% %downspeed:9% 
+label-connected = %local_ip% %downspeed:9%
 label-connected-foreground = ${colors.light}
 label-connected-font = 3
 

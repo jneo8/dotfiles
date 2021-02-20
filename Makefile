@@ -82,11 +82,19 @@ PHONY: init-wallpaper
 install-i3-gaps:  ## Install i3-gaps from source
 	./install-i3-gaps.sh
 
+
+PHONY: install-i3-gaps
+
+##@ polybar
+
 install-polybar:  ## Install polybar
 	./install-polybar.sh
 	./install-zscroll.sh
 
-PHONY: install-i3-gaps install-polybar
+relaunch-polybar:  ## Relaunch polybar
+	~/.config/polybar/launch.sh
+
+PHONY: install-polybar relaunch-polybar
 
 ##@ Help
 
