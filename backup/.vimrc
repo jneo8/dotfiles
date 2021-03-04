@@ -89,7 +89,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'derekwyatt/vim-scala'
 
 " The uncompromising Python code formatter https://github.com/psf/black/blob/master/plugin/black.vim
-Plug 'psf/black', {'branch': 'stable'}
+Plug 'psf/black'
 
 " Colorizer, color hex codes and color names
 Plug 'chrisbra/Colorizer'
@@ -210,6 +210,9 @@ autocmd BufWritePre *.py execute ':Black'
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" psf/black
+let g:black_skip_string_normalization = 1
 
 "
 " End Plug Parameter setting
