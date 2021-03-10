@@ -213,6 +213,7 @@ let g:vim_markdown_folding_disabled = 1
 
 " psf/black
 let g:black_skip_string_normalization = 1
+let g:black_linelength = 79
 
 "
 " End Plug Parameter setting
