@@ -35,6 +35,8 @@ sudo apt update
 
 # Basics
 install make
+install cmake
+install cmake-data
 install curl
 install file
 install git
@@ -68,6 +70,7 @@ install libreadline-dev
 install libsqlite3-dev
 install libncurses5-dev
 install python3-venv
+install python-is-python3
 
 ## i3
 install i3
@@ -94,6 +97,29 @@ install libxcb-xrm0
 install libxcb-xrm-dev
 install automake
 install libxcb-shape0-dev
+
+## polybar
+install libxcb-xkb-dev
+install libxcb-xrm-dev
+install libxcb-cursor-dev
+install libasound2-dev
+install libpulse-dev
+install i3-wm
+install libjsoncpp-dev
+install libmpdclient-dev
+install libcurl4-openssl-dev
+install libnl-genl-3-dev
+install pkg-config
+install python3-sphinx
+install python3-xcbgen
+install libcairo2-dev
+install libxcb1-dev
+install libxcb-util0-dev
+install libxcb-randr0-dev
+install libxcb-composite0-dev
+install xcb-proto
+install libxcb-image0-dev
+install libxcb-ewmh-dev
 
 ## Media
 install alsa-utils
