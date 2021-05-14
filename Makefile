@@ -90,6 +90,7 @@ PHONY: install-i3-gaps
 install-polybar:  ## Install polybar
 	./install-polybar.sh
 	./install-zscroll.sh
+	./install-playerctl.sh
 
 relaunch-polybar:  ## Relaunch polybar
 	~/.config/polybar/launch.sh
