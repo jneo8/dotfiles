@@ -51,21 +51,18 @@ Plug 'farmergreg/vim-lastplace'
 " emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 Plug 'mattn/emmet-vim'
 
-" html tag auto-close
-Plug 'alvan/vim-closetag'
-
 " EditorConfig plugin for Vim http://editorconfig.org
 Plug 'editorconfig/editorconfig-vim'
 
 " Vim motion on speed!
 Plug 'easymotion/vim-easymotion'
 
-" Vim syntax for TOML
-Plug 'cespare/vim-toml'
+" Colorizer, color hex codes and color names
+Plug 'chrisbra/Colorizer'
 
 
 "
-" Plug for markdown
+" Plug for specific file
 "
 
 " Markdown syntax highlighting (https://github.com/plasticboy/vim-markdown)
@@ -75,12 +72,15 @@ Plug 'plasticboy/vim-markdown'
 " makrdown preview (https://github.com/iamcco/markdown-preview.nvim)
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
+" Vim syntax for TOML
+Plug 'cespare/vim-toml'
+
+" html tag auto-close
+Plug 'alvan/vim-closetag'
+
 "
 " Plug for specific language
 "
-
-" python highlighting
-Plug 'hdima/python-syntax'
 
 " vim-go, Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -88,12 +88,21 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " vim Scala https://github.com/derekwyatt/vim-scala
 Plug 'derekwyatt/vim-scala'
 
+" python highlighting
+Plug 'hdima/python-syntax'
+
 " The uncompromising Python code formatter https://github.com/psf/black/blob/master/plugin/black.vim
 Plug 'psf/black'
 
-" Colorizer, color hex codes and color names
-Plug 'chrisbra/Colorizer'
+" polar.vim, vim configuration for Polar
+Plug 'weihanglo/polar.vim'
 
+"
+" Theme, choose from https://github.com/rafi/awesome-vim-colorschemes
+"
+
+Plug 'NLKNguyen/papercolor-theme' " required
+Plug 'jneo8/papercolor-jneo8'
 
 "
 " Some Plugin may useful ???
@@ -108,13 +117,6 @@ Plug 'chrisbra/Colorizer'
 
 " vim-python-pep8-indent
 " Plug 'Vimjas/vim-python-pep8-indent'
-
-"
-" Theme, choose from https://github.com/rafi/awesome-vim-colorschemes
-"
-
-Plug 'NLKNguyen/papercolor-theme' " required
-Plug 'jneo8/papercolor-jneo8'
 
 
 call plug#end()
