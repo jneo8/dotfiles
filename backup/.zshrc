@@ -51,7 +51,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gcloud fzf pyenv rvm helm sbt tmux z nvm)
+plugins=(git gcloud fzf pyenv rvm helm sbt tmux z nvm kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,5 +94,6 @@ alias gl="git log --oneline --graph --all --decorate"
 alias glv="git log  --graph --all --decorate --stat"
 alias glvp="git log  --graph --all --decorate --stat -p"
 alias glv1="git log --oneline --graph --all --decorate --stat"
+alias gdc="git diff --cached"
 
 export PATH="$HOME/.poetry/bin:$PATH"
