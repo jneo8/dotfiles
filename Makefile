@@ -95,7 +95,11 @@ install-polybar:  ## Install polybar
 relaunch-polybar:  ## Relaunch polybar
 	~/.config/polybar/launch.sh
 
-PHONY: install-polybar relaunch-polybar
+add-polybar-cfg-to-mackup:  ## Add polybar cfg file to ~/.mackup
+	wget https://raw.githubusercontent.com/jneo8/mackup/polybar/mackup/applications/polybar.cfg -O ~/.mackup/polybar.cfg
+
+
+PHONY: install-polybar relaunch-polybar add-polybar-cfg-to-mackup
 
 ##@ Help
 

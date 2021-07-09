@@ -30,6 +30,7 @@ make install-i3-gaps
 
 make install-mackup
 make cp-makeup-config
+make add-polybar-cfg-to-mackup
 mackup restore
 
 ## Install oh-my-zsh 
@@ -87,3 +88,8 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_insta
 * [ ] vim PlugInstall
 * [ ] vim GoInstallBinaries
 * [ ] reboot after all finish
+
+
+## Issues
+
+Follow up: [Polybar PR to mackup](https://github.com/lra/mackup/pull/1697)
