@@ -182,6 +182,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
+" ALE Python
+let g:ale_python_flake8_executable = 'python'
+let g:ale_python_flake8_options = '-m flake8 --docstring-convention google'
+
 
 " NERDTree Auto open
 autocmd StdinReadPre * let s:std_in=1
