@@ -71,11 +71,14 @@ PHONY: install-gvm
 
 ##@ Wallpaper
 
-init-wallpaper:  ## Init wall paper with feh
+init-wallpaper-lucifer-angel:  ## Init wall paper with feh
 	feh --bg-fill ~/Dropbox/Img/wallpapers/LuciferAngel.jpeg
 
+init-wallpaper-whale:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/whale.jpg
 
-PHONY: init-wallpaper
+
+PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale
 
 ##@ i3
 
