@@ -64,6 +64,7 @@ install build-essential
 
 ## Python
 install libssl-dev
+install libffi-dev
 install zlib1g-dev
 install libbz2-dev
 install libreadline-dev
@@ -127,7 +128,8 @@ install pavucontrol
 install feh
 
 ## Language
-install gcin
+install fcitx
+install fcitx-chewing
 
 ## gvm
 install bison

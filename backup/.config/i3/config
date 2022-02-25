@@ -251,8 +251,12 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 
+client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340
+client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
+client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9
+
 # i3-gaps
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 5
 # smart_gaps on
 workspace $ws1 gaps outer 30
 workspace $ws4 gaps outer 30

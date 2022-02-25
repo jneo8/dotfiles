@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-PYTHON_VERSION ?= "3.8.6"
+PYTHON_VERSION ?= "3.9.10"
 GO_VERSION ?= "go1.15.2"
 
 
@@ -55,7 +55,7 @@ pyenv-install-default-python:  ## Install default python
 	pyenv global $(PYTHON_VERSION)
 
 python-install-basic-pkg:  ## Install basic package for python
-	pip install -U Commitizen flake8 flake8-docstrings mypy pre-commit
+	pip install Commitizen flake8 flake8-docstrings mypy pre-commit
 
 install-poetry:  ## Install python package manager poetry
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
