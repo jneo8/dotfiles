@@ -210,16 +210,13 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " python highlighting
 let python_highlight_all = 1
 
-" python Black
-" Run Black on save
-autocmd BufWritePre *.py execute ':Black'
-
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 
 " psf/black
 let g:black_skip_string_normalization = 1
 let g:black_linelength = 79
+autocmd BufWritePre *.py execute ':Black' " Run Black on save
 
 "
 " End Plug Parameter setting
