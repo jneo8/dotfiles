@@ -24,7 +24,12 @@ make install-i3-gaps
 ./install-dropbox.sh
 
 ### Install albert
-./install-albert.sh
+
+See https://albertlauncher.github.io/installing/
+
+### Install rofi theme
+
+./install-rofi-theme.sh
 
 ## mackup
 
@@ -44,7 +49,6 @@ make install-poetry
 
 make install-gvm
 ```
-
 
 ## Init GVM 
 
@@ -69,27 +73,27 @@ See: https://github.com/ryanoasis/nerd-fonts
 
 Change terminal font to Nerd Font after install.
 
-## Install joplin
+## Install obsidian
+
+See: https://obsidian.md
+> Use snap install version
+
+## Install On 4k laptop
+
+Add to `~/.profile`
 
 ```
-## The script may need to update if i3 already in use
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
+export DOTFILE_LAPTOP_MODE=true
 ```
 
 
 ## Final checklist
 
-* [ ] Change default input to gcin in Language support
-
+* [ ] Change default input to fcitx in Input Source setting
 * [ ] Change default terminal to gnome-terminal
 * [ ] Dropbox login 
-* [ ] Joplin sync login
+* [ ] Obsidian login
 * [ ] color-terminal
 * [ ] vim PlugInstall
 * [ ] vim GoInstallBinaries
 * [ ] reboot after all finish
-
-
-## Issues
-
-Follow up: [Polybar PR to mackup](https://github.com/lra/mackup/pull/1697)
