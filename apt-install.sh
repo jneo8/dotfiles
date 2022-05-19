@@ -128,8 +128,8 @@ install pavucontrol
 install feh
 
 ## Language
-install fcitx
-install fcitx-chewing
+install fcitx5
+install fcitx5-chewing
 
 ## gvm
 install bison
