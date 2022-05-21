@@ -9,8 +9,7 @@ option=`echo -e "sleep\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" 
 
 case $option in
     sleep)
-        #sudo  /lib/systemd/systemd-sleep hybrid-sleep
-        sudo  pm-suspend
+        systemctl suspend
         ;;
     'lock screen')
         i3lock-fancy -gp
