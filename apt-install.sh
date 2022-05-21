@@ -49,6 +49,7 @@ install wget
 install llvm
 install imagemagick
 install tree
+install xclip
 
 ## Terminal
 install zsh
@@ -142,3 +143,6 @@ install npm
 install bluetooth
 install bluez
 install blueman
+
+## brightness
+install light

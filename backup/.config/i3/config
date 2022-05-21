@@ -40,7 +40,6 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run
 # use rofi as dmenu
 bindsym $mod+d exec --no-startup-id rofi -show window -modi drun
-bindsym $mod+p exec --no-startup-id pavucontrol
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -389,6 +388,25 @@ mode "$mode_gaps_left" {
 
 
 # customize
+
+## bindsyms
+bindsym $mod+p exec --no-startup-id pavucontrol
+bindsym $mod+o exec ~/.config/i3/bin/logout.sh
+bindsym $mod+c exec google-chrome
+## backlight control
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+# Pulse Audio controls
+bindsym XF86AudioMute exec amixer sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+
 ## polybar
 exec --no-startup-id ~/.config/polybar/launch.sh
 ## Sound

@@ -86,6 +86,14 @@ Add to `~/.profile`
 export DOTFILE_LAPTOP_MODE=true
 ```
 
+## Exec light without sudo
+
+https://github.com/haikarainen/light
+
+```bash
+sudo chmod +s /usr/bin/light
+```
+
 
 ## Final checklist
 
