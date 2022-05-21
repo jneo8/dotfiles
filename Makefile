@@ -11,7 +11,10 @@ install-mackup:  ## Install mackup with homebrew
 cp-mackup-config:  ## Copy mackup config to ~/
 	cp ./.mackup.cfg ~/
 
-PHONY: install-mackup cp-mackup-config
+add-i3-bin-cfg-to-mackup:  ## Add i3-bin cfg file to ~/.mackup
+	wget https://raw.githubusercontent.com/jneo8/mackup/feat/i3-bin/mackup/applications/i3-bin.cfg -O ~/.mackup/i3-bin.cfgw
+
+PHONY: install-mackup cp-mackup-config add-i3-bin-cfg-to-mackup
 
 ##@ Application
 
@@ -21,7 +24,7 @@ apt-install: ## Run ./apt-install.sh
 snap-install:  ## Run ./snap-install.sh
 	./snap-install.sh
 
-install-homebrew:
+install-homebrew:  ## Install homebrew
 	@bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	echo 'eval $$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
 
