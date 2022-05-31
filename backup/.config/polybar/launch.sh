@@ -17,9 +17,11 @@ MONITORS=$(xrandr --query | grep " connected" | cut -d" " -f1)
 
 # if DOTFiLE_LAPTOP_MODE
 top_right_modules="wired-network memory cpu date"
+top_center_modules="spotify spotify-prev spotify-play-pause spotify-next"
 if [ "$DOTFILE_LAPTOP_MODE" = true ]; then
     # ENABLE wifi && battery module
     top_right_modules="wired-network wireless-network battery date"
+    top_center_modules=""
     dpi=250
 fi
 
@@ -27,6 +29,7 @@ if type "xrandr"; then
     for m in $MONITORS; do
         MONITOR=$m \
             TOP_RIGHT_MODULES=$top_right_modules \
+            TOP_CENTER_MODULES=$top_center_modules \
             DPI=$dpi \
             polybar --reload top &
     done

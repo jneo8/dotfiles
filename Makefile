@@ -14,7 +14,7 @@ cp-mackup-config:  ## Copy mackup config to ~/
 add-i3-bin-cfg-to-mackup:  ## Add i3-bin cfg file to ~/.mackup
 	wget https://raw.githubusercontent.com/jneo8/mackup/feat/i3-bin/mackup/applications/i3-bin.cfg -O ~/.mackup/i3-bin.cfgw
 
-PHONY: install-mackup cp-mackup-config add-i3-bin-cfg-to-mackup
+.PHONY: install-mackup cp-mackup-config add-i3-bin-cfg-to-mackup
 
 ##@ Application
 
@@ -31,7 +31,7 @@ install-homebrew:  ## Install homebrew
 install-calibre:  ## Install calibre https://calibre-ebook.com/download_linux
 	sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
-PHONY: apt-install snap-install install-homebrew
+.PHONY: apt-install snap-install install-homebrew
 
 ##@ Shell
 
@@ -40,14 +40,15 @@ install-oh-my-zsh:  ## Setup zsh
 	cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 	sudo chsh -s $$(which zsh)
 
-PHONY: install-oh-my-zsh
+.PHONY: install-oh-my-zsh
+	n
 
 ##@ Terminal
 
 color-terminal:  ## Color terminal with goph
 	 export TERMINAL=gnome-terminal && $(SHELL) -c "$$(wget -qO- https://git.io/vQgMr)"
 
-PHONY: color-terminal
+.PHONY: color-terminal
 
 ##@ Pyenv
 install-pyenv:  ## Install pyenv
@@ -81,7 +82,7 @@ init-wallpaper-whale:  ## Init wall paper with feh
 	feh --bg-fill ~/Dropbox/Img/wallpapers/whale.jpg
 
 
-PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale
+.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale
 
 ##@ i3
 
@@ -89,7 +90,7 @@ install-i3-gaps:  ## Install i3-gaps from source
 	./install-i3-gaps.sh
 
 
-PHONY: install-i3-gaps
+.PHONY: install-i3-gaps
 
 ##@ polybar
 
@@ -101,8 +102,14 @@ install-polybar:  ## Install polybar
 relaunch-polybar:  ## Relaunch polybar
 	~/.config/polybar/launch.sh
 
+.PHONY: install-polybar relaunch-polybar
 
-PHONY: install-polybar relaunch-polybar
+##@ device commands
+
+disable-bluetooth:  ## Disable bluetooth on ubuntu
+	systemctl disable bluetooth.service
+
+.PHONY: disable-bluetooth
 
 ##@ Help
 

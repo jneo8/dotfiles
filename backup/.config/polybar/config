@@ -72,7 +72,7 @@ separator = "   "
 
 ; modules settings
 modules-left = i3
-modules-center = spotify spotify-prev spotify-play-pause spotify-next
+modules-center = ${env:TOP_CENTER_MODULES}
 
 ; modules-right = wired-network ${self.battery} ${env:ENABLE_WIFI_MODULE} memory cpu date
 modules-right = ${env:TOP_RIGHT_MODULES}
@@ -209,7 +209,7 @@ format-prefix = "   "
 format-padding = 2
 ; format-underline = ${colors.light}
 format-foreground = ${colors.light}
-interval = 5
+interval = 10
 
 label = %date%, %time%
 label-font = 2
@@ -217,7 +217,7 @@ label-foreground = ${colors.light}
 
 [module/memory]
 type = internal/memory
-interval = 3
+interval = 10
 format = <label>
 format-padding = 2
 ; format-underline = ${colors.light}
@@ -270,7 +270,7 @@ animation-packetloss-framerate = 500
 [module/wireless-network]
 type = internal/network
 interface-type = wireless
-interval = 3.0
+interval = 5.0
 
 format-connected = <ramp-signal> <label-connected>
 ; format-connected-underline = ${colors.light}
@@ -308,7 +308,7 @@ animation-packetloss-framerate = 500
 
 [module/cpu]
 type = internal/cpu
-interval = 0.5
+interval = 5
 format = <label>
 format-padding = 0
 ; format-underline = ${colors.light}
