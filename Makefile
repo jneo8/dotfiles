@@ -107,9 +107,16 @@ relaunch-polybar:  ## Relaunch polybar
 ##@ device commands
 
 disable-bluetooth:  ## Disable bluetooth on ubuntu
-	systemctl disable bluetooth.service
+	sudo systemctl disable bluetooth.service
 
-.PHONY: disable-bluetooth
+reload-bluetooth:  ## Reload bluetooth
+	sudo rfkill unblock bluetooth
+	sudo systemctl stop bluetooth
+	sudo systemctl restart bluetooth
+	sudo systemctl status bluetooth
+
+
+.PHONY: disable-bluetooth reload-bluetooth
 
 ##@ Help
 
