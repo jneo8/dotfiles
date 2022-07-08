@@ -81,8 +81,11 @@ init-wallpaper-lucifer-angel:  ## Init wall paper with feh
 init-wallpaper-whale:  ## Init wall paper with feh
 	feh --bg-fill ~/Dropbox/Img/wallpapers/whale.jpg
 
+init-wallpaper-moon-whale:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/moon-whale.png
 
-.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale
+
+.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale init-wallpaper-moon-whale
 
 ##@ i3
 
@@ -110,6 +113,7 @@ disable-bluetooth:  ## Disable bluetooth on ubuntu
 	sudo systemctl disable bluetooth.service
 
 reload-bluetooth:  ## Reload bluetooth
+	sudo rfkill block bluetooth
 	sudo rfkill unblock bluetooth
 	sudo systemctl stop bluetooth
 	sudo systemctl restart bluetooth
@@ -117,6 +121,21 @@ reload-bluetooth:  ## Reload bluetooth
 
 
 .PHONY: disable-bluetooth reload-bluetooth
+
+
+##@ Monitor
+
+list-monitor:  ## Run xrandr --listmonitors
+	xrandr --listmonitors
+
+xrandr-left-output-right-of-main:  ## Make DP1 output right of eDP-1
+	xrandr --output DP-1 --auto --right-of eDP-1
+
+xrandr-right-output-right-of-main:  ## Make DP3 output right of eDP-1
+	xrandr --output DP-1 --auto --right-of eDP-1
+
+
+,PHONY: listmonitors xrandr-left-output-right-of-main xrandr-right-output-right-of-main
 
 ##@ Help
 
