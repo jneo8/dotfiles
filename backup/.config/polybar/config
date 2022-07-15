@@ -50,12 +50,14 @@ droidsansmononerdfont = DroidSansMonoNerdFont:Bold:size=8
 
 [settings]
 screenchange-reload = true
+dpi = ${env:DPI}
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
 
 [bar/top]
+dpi = ${settings.dpi}
 monitor = ${env:MONITOR:}
 enable-ipc = true
 bottom = false
@@ -64,14 +66,16 @@ offset-x = 0
 offset-y = 0
 line-size = 2
 line-color = ${colors.light}
-height = 22
+height = 2.5%
 width = 100%
 separator = "   "
 
 ; modules settings
 modules-left = i3
-modules-center = spotify spotify-prev spotify-play-pause spotify-next
-modules-right = wired-network memory cpu date
+modules-center = ${env:TOP_CENTER_MODULES}
+
+; modules-right = wired-network ${self.battery} ${env:ENABLE_WIFI_MODULE} memory cpu date
+modules-right = ${env:TOP_RIGHT_MODULES}
 
 ; i3
 override-redirect = false
@@ -140,6 +144,58 @@ label-urgent-background = ${colors.light-red}
 label-urgent-padding = 3
 label-urgent-font = 3
 
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+
+full-at = 99
+low-at = 5
+poll-interval = 5
+
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %percentage%%
+label-charging-font = 3
+
+label-discharging = %percentage%%
+label-discharging-font = 3
+
+label-full = %percentage%%
+label-full-font = 3
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
 
 [module/date]
 type = internal/date
@@ -153,7 +209,7 @@ format-prefix = "   "
 format-padding = 2
 ; format-underline = ${colors.light}
 format-foreground = ${colors.light}
-interval = 5
+interval = 10
 
 label = %date%, %time%
 label-font = 2
@@ -161,7 +217,7 @@ label-foreground = ${colors.light}
 
 [module/memory]
 type = internal/memory
-interval = 3
+interval = 10
 format = <label>
 format-padding = 2
 ; format-underline = ${colors.light}
@@ -211,9 +267,48 @@ animation-packetloss-1-foreground = ${colors.dark}
 ; Framerate in milliseconds
 animation-packetloss-framerate = 500
 
+[module/wireless-network]
+type = internal/network
+interface-type = wireless
+interval = 5.0
+
+format-connected = <ramp-signal> <label-connected>
+; format-connected-underline = ${colors.light}
+
+format-disconnected = <label-disconnected>
+; format-disconnected-underline = ${colors.light}
+
+format-packetloss = <animation-packetloss> <label-connected>
+; format-packetloss-underline = ${colors.light}
+
+label-connected = %local_ip% %downspeed:9%
+label-connected-foreground = ${colors.light}
+label-connected-font = 3
+
+label-disconnected = not connected
+label-disconnected-foreground = ${colors.menucol-red}
+label-disconnected-font = 3
+
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = ${colors.menucol-orange}
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = ${colors.dark}
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
 [module/cpu]
 type = internal/cpu
-interval = 0.5
+interval = 5
 format = <label>
 format-padding = 0
 ; format-underline = ${colors.light}

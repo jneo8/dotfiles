@@ -11,7 +11,10 @@ install-mackup:  ## Install mackup with homebrew
 cp-mackup-config:  ## Copy mackup config to ~/
 	cp ./.mackup.cfg ~/
 
-PHONY: install-mackup cp-mackup-config
+add-i3-bin-cfg-to-mackup:  ## Add i3-bin cfg file to ~/.mackup
+	wget https://raw.githubusercontent.com/jneo8/mackup/feat/i3-bin/mackup/applications/i3-bin.cfg -O ~/.mackup/i3-bin.cfgw
+
+.PHONY: install-mackup cp-mackup-config add-i3-bin-cfg-to-mackup
 
 ##@ Application
 
@@ -21,14 +24,14 @@ apt-install: ## Run ./apt-install.sh
 snap-install:  ## Run ./snap-install.sh
 	./snap-install.sh
 
-install-homebrew:
+install-homebrew:  ## Install homebrew
 	@bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	echo 'eval $$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.profile
 
 install-calibre:  ## Install calibre https://calibre-ebook.com/download_linux
 	sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 
-PHONY: apt-install snap-install install-homebrew
+.PHONY: apt-install snap-install install-homebrew
 
 ##@ Shell
 
@@ -37,14 +40,15 @@ install-oh-my-zsh:  ## Setup zsh
 	cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 	sudo chsh -s $$(which zsh)
 
-PHONY: install-oh-my-zsh
+.PHONY: install-oh-my-zsh
+	n
 
 ##@ Terminal
 
 color-terminal:  ## Color terminal with goph
 	 export TERMINAL=gnome-terminal && $(SHELL) -c "$$(wget -qO- https://git.io/vQgMr)"
 
-PHONY: color-terminal
+.PHONY: color-terminal
 
 ##@ Pyenv
 install-pyenv:  ## Install pyenv
@@ -77,8 +81,11 @@ init-wallpaper-lucifer-angel:  ## Init wall paper with feh
 init-wallpaper-whale:  ## Init wall paper with feh
 	feh --bg-fill ~/Dropbox/Img/wallpapers/whale.jpg
 
+init-wallpaper-moon-whale:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/moon-whale.png
 
-PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale
+
+.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale init-wallpaper-moon-whale
 
 ##@ i3
 
@@ -86,7 +93,7 @@ install-i3-gaps:  ## Install i3-gaps from source
 	./install-i3-gaps.sh
 
 
-PHONY: install-i3-gaps
+.PHONY: install-i3-gaps
 
 ##@ polybar
 
@@ -98,8 +105,37 @@ install-polybar:  ## Install polybar
 relaunch-polybar:  ## Relaunch polybar
 	~/.config/polybar/launch.sh
 
+.PHONY: install-polybar relaunch-polybar
 
-PHONY: install-polybar relaunch-polybar
+##@ device commands
+
+disable-bluetooth:  ## Disable bluetooth on ubuntu
+	sudo systemctl disable bluetooth.service
+
+reload-bluetooth:  ## Reload bluetooth
+	sudo rfkill block bluetooth
+	sudo rfkill unblock bluetooth
+	sudo systemctl stop bluetooth
+	sudo systemctl restart bluetooth
+	sudo systemctl status bluetooth
+
+
+.PHONY: disable-bluetooth reload-bluetooth
+
+
+##@ Monitor
+
+list-monitor:  ## Run xrandr --listmonitors
+	xrandr --listmonitors
+
+xrandr-left-output-right-of-main:  ## Make DP1 output right of eDP-1
+	xrandr --output DP-1 --auto --right-of eDP-1
+
+xrandr-right-output-right-of-main:  ## Make DP3 output right of eDP-1
+	xrandr --output DP-1 --auto --right-of eDP-1
+
+
+,PHONY: listmonitors xrandr-left-output-right-of-main xrandr-right-output-right-of-main
 
 ##@ Help
 

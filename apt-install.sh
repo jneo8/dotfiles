@@ -49,6 +49,7 @@ install wget
 install llvm
 install imagemagick
 install tree
+install xclip
 
 ## Terminal
 install zsh
@@ -128,8 +129,8 @@ install pavucontrol
 install feh
 
 ## Language
-install fcitx
-install fcitx-chewing
+install fcitx5
+install fcitx5-chewing
 
 ## gvm
 install bison
@@ -142,3 +143,6 @@ install npm
 install bluetooth
 install bluez
 install blueman
+
+## brightness
+install light
