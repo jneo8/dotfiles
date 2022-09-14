@@ -418,4 +418,4 @@ exec --no-startup-id compton -b
 exec --no-startup-id ~/.dropbox-dist/dropboxd
 ## Wallpaper && display output
 # exec --no-startup-id xrandr --output HDMI-1 --left-of VGA-1
-exec --no-startup-id sleep 2;feh --bg-fill ~/Dropbox/Img/wallpapers/moon-whale.png
+exec --no-startup-id sleep 2;feh --bg-fill ~/Dropbox/Img/wallpapers/Silverhand.jpg
