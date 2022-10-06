@@ -84,8 +84,11 @@ init-wallpaper-whale:  ## Init wall paper with feh
 init-wallpaper-moon-whale:  ## Init wall paper with feh
 	feh --bg-fill ~/Dropbox/Img/wallpapers/moon-whale.png
 
+init-wallpaper-silverhand:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/Silverhand.jpg
 
-.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale init-wallpaper-moon-whale
+
+.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale init-wallpaper-moon-whale init-wallpaper-silverhand
 
 ##@ i3
 
