@@ -96,4 +96,7 @@ alias glvp="git log  --graph --all --decorate --stat -p"
 alias glv1="git log --oneline --graph --all --decorate --stat"
 alias gdc="git diff --cached"
 
-export PATH="$HOME/.local/bin:$PATH"
+# import bash_aliases
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
