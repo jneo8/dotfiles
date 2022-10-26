@@ -87,8 +87,14 @@ init-wallpaper-moon-whale:  ## Init wall paper with feh
 init-wallpaper-silverhand:  ## Init wall paper with feh
 	feh --bg-fill ~/Dropbox/Img/wallpapers/Silverhand.jpg
 
+init-wallpaper-jammy-jellyfish:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/jammy-jellyfish.jpeg
 
-.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale init-wallpaper-moon-whale init-wallpaper-silverhand
+init-wallpaper-space-art:  ## Init wall paper with feh
+	feh --bg-fill ~/Dropbox/Img/wallpapers/space-art-fantasy-art-sky-clouds-wallpaper.jpg
+
+
+.PHONY: init-wallpaper-lucifer-angel init-wallpaper-whale init-wallpaper-moon-whale init-wallpaper-silverhand init-wallpaper-jammy-jellyfish init-wallpaper-space-art
 
 ##@ i3
 
@@ -131,14 +137,17 @@ reload-bluetooth:  ## Reload bluetooth
 list-monitor:  ## Run xrandr --listmonitors
 	xrandr --listmonitors
 
+xrandr-left-mirror:  ## Make DP1 output mirror
+	xrandr --output DP-1 --scale-from 3456x2160 --auto  --same-as eDP-1
+
 xrandr-left-output-right-of-main:  ## Make DP1 output right of eDP-1
-	xrandr --output DP-1 --auto --right-of eDP-1
+	xrandr --output DP-1 --auto --scale-from 3456x2160 --right-of eDP-1
 
 xrandr-right-output-right-of-main:  ## Make DP3 output right of eDP-1
-	xrandr --output DP-1 --auto --right-of eDP-1
+	xrandr --output DP-1 --auto --scale-from 3456x2160 --right-of eDP-1
 
 
-,PHONY: listmonitors xrandr-left-output-right-of-main xrandr-right-output-right-of-main
+,PHONY: listmonitors xrandr-left-output-right-of-main xrandr-right-output-right-of-main xrandr-left-mirror
 
 ##@ Help
 
