@@ -50,21 +50,21 @@ color-terminal:  ## Color terminal with goph
 
 .PHONY: color-terminal
 
-##@ Pyenv
-install-pyenv:  ## Install pyenv
-	 curl https://pyenv.run | zsh
+##@ rye
 
-pyenv-install-default-python:  ## Install default python
-	pyenv install  $(PYTHON_VERSION)
-	pyenv global $(PYTHON_VERSION)
+install-rye:  ## Install rye
+	curl -sSf https://rye-up.com/get | bash
+rye-set-default-python:  ## Set rye default python version
+	rye pin cpython@3.11.6
+	rye config --set-bool behavior.global-python=true
 
-python-install-basic-pkg:  ## Install basic package for python
-	pip install Commitizen flake8 flake8-docstrings mypy pre-commit
-
-install-poetry:  ## Install python package manager poetry
-	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-
-.PHONY: install-pyenv pyenv-install-default-python python-install-basic-pkg install-poetry
+rye-install-basic-pkgs:  ## Install basic package in rye environment
+	rye install Commitizen -f
+	rye install flake8 -f
+	rye install flake8-docstrings -f
+	rye install mypy -f
+	rye install pre-commit -f
+	rye install isort -f
 
 ##@ gvm
 
