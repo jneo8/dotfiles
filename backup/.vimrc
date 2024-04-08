@@ -154,8 +154,8 @@ set incsearch
 set background=dark
 
 " Setting afterglow theme
-" let g:afterglow_blackout=1
-" let g:afterglow_inherit_background=1
+let g:afterglow_blackout=1
+let g:afterglow_inherit_background=1
 let g:PaperColor_Theme = 'jneo8'
 colorscheme PaperColor
 
@@ -216,10 +216,31 @@ let g:vim_markdown_folding_disabled = 1
 " psf/black
 let g:black_skip_string_normalization = 1
 let g:black_linelength = 79
-augroup black_on_save
-  autocmd!
-  autocmd BufWritePre *.py Black
-augroup end
+" augroup black_on_save
+"   autocmd!
+"   autocmd BufWritePre *.py Black
+" augroup end
+"
+
+" fzf
+function! s:getVisualSelection()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+
+    if len(lines) == 0
+        return ""
+    endif
+
+    let lines[-1] = lines[-1][:column_end - (&selection == "inclusive" ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+
+    return join(lines, "\n")
+endfunction
+
+vnoremap <silent><leader>f <Esc>:Ag <C-R>=<SID>getVisualSelection()<CR><CR>
+vnoremap <silent><leader>r <Esc>:Rg <C-R>=<SID>getVisualSelection()<CR><CR>
+
 
 "
 " End Plug Parameter setting
