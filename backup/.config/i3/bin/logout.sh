@@ -3,11 +3,14 @@
 # Manage logout with rofi
 # By jmutai@computingforgeeks.com
 
-option=`echo -e "sleep\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 500 -dmenu -p system:`
+option=`echo -e "settings\nsleep\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 500 -dmenu -p system:`
 
 # Case switch
 
 case $option in
+    settings)
+        gnome-control-center
+        ;;
     sleep)
         systemctl suspend
         ;;
