@@ -25,7 +25,7 @@ make install-i3-gaps
 
 ### Install albert
 
-See https://albertlauncher.github.io/installing/
+See https://albertlauncher.github.io/gettingstarted/install/linux/
 
 ### Install rofi theme
 
@@ -35,7 +35,7 @@ See https://albertlauncher.github.io/installing/
 
 make install-mackup
 make cp-makeup-config
-make add-polybar-cfg-to-mackup
+make add-i3-bin-cfg-to-mackup
 mackup restore
 
 ## Install oh-my-zsh 
@@ -47,18 +47,14 @@ make rye-set-default-python
 make rye-install-basic-pkgs
 
 make install-gvm
+make install-rust
 ```
 
 ## Init GVM 
 
-```bash
-gvm install go1.4 -B
-gvm use go1.4
-export GOROOT_BOOTSTRAP=$GOROOT
-## Change the version if you need
-gvm install go1.15.2
-gvm use go1.15.2 --default
-```
+
+See: https://github.com/moovweb/gvm
+
 
 ## Change terminal color
 
@@ -97,9 +93,11 @@ sudo chmod +s /usr/bin/light
 ## Final checklist
 
 * [ ] Change default input to fcitx in Input Source setting
-* [ ] Change default terminal to gnome-terminal
 * [ ] Dropbox login 
 * [ ] Obsidian login
+* [ ] Python environment with pipx and uv
+* [ ] GVM environment
+* [ ] Rust environment
 * [ ] color-terminal
 * [ ] vim PlugInstall
 * [ ] vim GoInstallBinaries

@@ -12,7 +12,7 @@ cp-mackup-config:  ## Copy mackup config to ~/
 	cp ./.mackup.cfg ~/
 
 add-i3-bin-cfg-to-mackup:  ## Add i3-bin cfg file to ~/.mackup
-	wget https://raw.githubusercontent.com/jneo8/mackup/feat/i3-bin/mackup/applications/i3-bin.cfg -O ~/.mackup/i3-bin.cfgw
+	wget https://raw.githubusercontent.com/jneo8/mackup/feat/i3-bin/mackup/applications/i3-bin.cfg -O ~/.mackup/i3-bin.cfg
 
 .PHONY: install-mackup cp-mackup-config add-i3-bin-cfg-to-mackup
 
@@ -50,21 +50,27 @@ color-terminal:  ## Color terminal with goph
 
 .PHONY: color-terminal
 
-##@ rye
+##@ Python
 
-install-rye:  ## Install rye
-	curl -sSf https://rye-up.com/get | bash
-rye-set-default-python:  ## Set rye default python version
-	rye pin cpython@3.11.6
-	rye config --set-bool behavior.global-python=true
+install-pipx:  ## install pipx
+	sudo apt install pipx
 
-rye-install-basic-pkgs:  ## Install basic package in rye environment
-	rye install Commitizen -f
-	rye install flake8 -f
-	rye install flake8-docstrings -f
-	rye install mypy -f
-	rye install pre-commit -f
-	rye install isort -f
+install-uv:   ## install uv
+	pipx install uv
+
+uv-install-basic-pkgs:  ## Install basic package with uv
+	uv tool install mypy
+	uv tool install isort
+	uv tool install pre-commit
+	uv tool install Commitizen
+	uv tool install ruff
+
+##@ Rust
+
+install-rust:  ## Install rust
+	curl https://sh.rustup.rs -sSf | sh
+
+.PHONY: install-rust
 
 ##@ gvm
 
