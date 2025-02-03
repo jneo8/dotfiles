@@ -254,7 +254,7 @@ bar {
         position top
 }
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 
 client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340
 client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340

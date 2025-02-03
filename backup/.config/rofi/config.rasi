@@ -2,7 +2,6 @@ configuration {
   combi-modes: [window, drun];
   show-icons: true;
   icon-theme: "Papirus";
-  dpi: 250;
 }
 
-@import "./launchers/colorful/style_7.rasi"
+@import "./launchers/type-1/style-5.rasi"
