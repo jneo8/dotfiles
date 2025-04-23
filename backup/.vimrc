@@ -114,11 +114,6 @@ Plug 'jneo8/papercolor-jneo8'
 " Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs
 " Plug 'ervandew/supertab'
 
-
-" vim-python-pep8-indent
-" Plug 'Vimjas/vim-python-pep8-indent'
-
-
 call plug#end()
 
 
@@ -156,7 +151,7 @@ set background=dark
 " Setting afterglow theme
 let g:afterglow_blackout=1
 let g:afterglow_inherit_background=1
-let g:PaperColor_Theme = 'jneo8'
+" let g:PaperColor_Theme = 'jneo8'
 colorscheme PaperColor
 
 
@@ -192,6 +187,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 :command NE NERDTree
 :command NEF NERDTreeFocus
+:command NF NERDTreeFind
 
 " Airline
 " set laststatus=2  " let airline appear all the time
@@ -220,7 +216,32 @@ let g:black_linelength = 79
 "   autocmd!
 "   autocmd BufWritePre *.py Black
 " augroup end
-"
+
+" completor.vim
+" Disable completor for go files
+autocmd FileType go let b:completor_disabled = 1
+
+" vim-go
+
+" Enable gopls for definition and type information
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
+
+" Use goimports for formatting, which also handles imports
+let g:go_fmt_command = "goimports"
+
+" Automatically format and import on save
+let g:go_fmt_autosave = 1
+
+" Display type information in the status line
+let g:go_auto_type_info = 1
+
+" Enable diagnostics from gopls
+let g:go_diagnostics_enabled = 1
+
+" Set the timeout for gopls responses (in milliseconds)
+let g:go_gopls_timeout = 5000
+
 
 " fzf
 function! s:getVisualSelection()
@@ -240,7 +261,6 @@ endfunction
 
 vnoremap <silent><leader>f <Esc>:Ag <C-R>=<SID>getVisualSelection()<CR><CR>
 vnoremap <silent><leader>r <Esc>:Rg <C-R>=<SID>getVisualSelection()<CR><CR>
-
 
 "
 " End Plug Parameter setting
