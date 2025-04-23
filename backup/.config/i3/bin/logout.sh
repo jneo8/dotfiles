@@ -9,7 +9,7 @@ option=`echo -e "settings\nsleep\nlock screen\nlogout\nreboot\npoweroff\nKill us
 
 case $option in
     settings)
-        gnome-control-center
+        XDG_CURRENT_DESKTOP=GNOME gnome-control-center
         ;;
     sleep)
         systemctl suspend
