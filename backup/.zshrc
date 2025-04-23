@@ -102,3 +102,5 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 export PATH="$PATH:/home/jneo8/.local/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

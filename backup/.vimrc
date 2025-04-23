@@ -1,141 +1,81 @@
-" jneo8 vimrc (https://github.com/jneo8/vim_settings)
+"==============================================================================
+" jneo8 vimrc - https://github.com/jneo8/vim_settings
+"==============================================================================
 
+"------------------------------------------------------------------------------
+" Directory Setup: Backup, Swap, Undo
+"------------------------------------------------------------------------------
+silent! call mkdir('~/.vim/dirs/tmp', 'p')
+silent! call mkdir('~/.vim/dirs/backups', 'p')
+silent! call mkdir('~/.vim/dirs/undos', 'p')
 
-" better backup, swap and undos storage (taken from fisa-vim-config)
-" Create folder if not exist.
-silent !mkdir -p ~/.vim/dirs/tmp > /dev/null 2>&1
-silent !mkdir -p ~/.vim/dirs/backups > /dev/null 2>&1
-silent !mkdir -p ~/.vim/dirs/undos > /dev/null 2>&1
-
-set directory=~/.vim/dirs/tmp     " directory to place swap files in
-set backup                        " make backup files
-set backupdir=~/.vim/dirs/backups " where to put backup files
-set undofile                      " persistent undos - undo after you re-open the file
+set directory=~/.vim/dirs/tmp
+set backup
+set backupdir=~/.vim/dirs/backups
+set undofile
 set undodir=~/.vim/dirs/undos
 set viminfo+=n~/.vim/dirs/viminfo
 
-
-" Vim-plug initialization (taken from fisa-vim-config)
+"------------------------------------------------------------------------------
+" Plugin Manager - vim-plug
+"------------------------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-" Asynchronous Linter Engine
+" Core Plugins
 Plug 'dense-analysis/ale'
-
-" NerdTree
 Plug 'scrooloose/nerdtree'
-
-" vim-devicons, Adds file type glyphs/icons to popular Vim plugins: NERDTree, vim-airline, Powerline, Unite, vim-startify and more.
 Plug 'ryanoasis/vim-devicons'
-
-" Gitgutter
 Plug 'airblade/vim-gitgutter'
-
-" acts like ctrlp, but even better
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" completor.vim (https://github.com/maralla/completor.vim)
 Plug 'maralla/completor.vim'
-
-" vim-visual-multi. Multiple cursors plugin for vim/neovim
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
-" farmergreg/vim-lastplace
 Plug 'farmergreg/vim-lastplace'
-
-" emmmet-vim
-" emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 Plug 'mattn/emmet-vim'
-
-" EditorConfig plugin for Vim http://editorconfig.org
 Plug 'editorconfig/editorconfig-vim'
-
-" Vim motion on speed!
 Plug 'easymotion/vim-easymotion'
-
-" Colorizer, color hex codes and color names
 Plug 'chrisbra/Colorizer'
 
-
-"
-" Plug for specific file
-"
-
-" Markdown syntax highlighting (https://github.com/plasticboy/vim-markdown)
+" Filetype Plugins
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-
-" makrdown preview (https://github.com/iamcco/markdown-preview.nvim)
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-
-" Vim syntax for TOML
 Plug 'cespare/vim-toml'
-
-" html tag auto-close
 Plug 'alvan/vim-closetag'
 
-"
-" Plug for specific language
-"
-
-" vim-go, Go development plugin for Vim
+" Language Plugins
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" vim Scala https://github.com/derekwyatt/vim-scala
 Plug 'derekwyatt/vim-scala'
-
-" python highlighting
 Plug 'hdima/python-syntax'
-
-" The uncompromising Python code formatter https://github.com/psf/black/blob/master/plugin/black.vim
 Plug 'psf/black'
-
-" polar.vim, vim configuration for Polar
 Plug 'weihanglo/polar.vim'
 
-"
-" Theme, choose from https://github.com/rafi/awesome-vim-colorschemes
-"
-
-Plug 'NLKNguyen/papercolor-theme' " required
+" Theme
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'jneo8/papercolor-jneo8'
-
-"
-" Some Plugin may useful ???
-"
-
-" automatically enclose quotes and brackets
-" Plug 'jiangmiao/auto-pairs'
-
-" Supertab is a vim plugin which allows you to use <Tab> for all your insert completion needs
-" Plug 'ervandew/supertab'
 
 call plug#end()
 
-
-"
-" Basic Parameter Setting
-"
-
+"------------------------------------------------------------------------------
+" Basic Settings
+"------------------------------------------------------------------------------
 syntax on
 set nocompatible
 set number
 set mouse+=a
 set backspace=indent,eol,start
-set t_Co=256 " enable 256 colors in vim (if not set, vim-airline-theme might not show correctly)
+set t_Co=256
 
-" vim-devicons & encoding
-set encoding=utf-8  " The encoding displayed
-set fileencoding=utf-8  " The encoding written to file
+set encoding=utf-8
+set fileencoding=utf-8
 let &t_TI = ""
 let &t_TE = ""
 
-" Indentation & tab
-set autoindent nosmartindent  " auto/smart indent
+" Tabs & Indentation
+set autoindent
+set nosmartindent
 set smarttab
 set expandtab
 set shiftwidth=4
@@ -145,123 +85,87 @@ set softtabstop=4
 set hlsearch
 set incsearch
 
-" background & theme
+" Theme
 set background=dark
-
-" Setting afterglow theme
-let g:afterglow_blackout=1
-let g:afterglow_inherit_background=1
-" let g:PaperColor_Theme = 'jneo8'
+let g:afterglow_blackout = 1
+let g:afterglow_inherit_background = 1
 colorscheme PaperColor
 
-
-"
-" End Basic Parameter setting
-"
-
-"
-" Plug Parameter setting
-"
-
+"------------------------------------------------------------------------------
+" Plugin Configurations
+"------------------------------------------------------------------------------
 
 " ALE
 let g:ale_sign_column_always = 1
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
 let g:ale_list_window_size = 5
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-
-" ALE Python
 let g:ale_python_flake8_executable = 'python'
 let g:ale_python_flake8_options = '-m flake8 --docstring-convention google'
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-
-" NERDTree Auto open
+" NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-:command NE NERDTree
-:command NEF NERDTreeFocus
-:command NF NERDTreeFind
+command! NE NERDTree
+command! NEF NERDTreeFocus
+command! NF NERDTreeFind
 
 " Airline
-" set laststatus=2  " let airline appear all the time
 let g:airline_theme = 'night_owl'
-let g:airline_powerline_fonts = 1  " use poewrline-fonts
-" Airline's extensions whitespace
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 1
-" Airline's extensions tabline
-let g:airline#extensions#tabline#enabled = 1 " Smarter tab line (https://github.com/vim-airline/vim-airline#smarter-tab-line)
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-" python highlighting
+" Python
 let python_highlight_all = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 
-" psf/black
+" Black
 let g:black_skip_string_normalization = 1
 let g:black_linelength = 79
+" Uncomment below to auto-format on save
 " augroup black_on_save
 "   autocmd!
 "   autocmd BufWritePre *.py Black
-" augroup end
+" augroup END
 
 " completor.vim
-" Disable completor for go files
-autocmd FileType go let b:completor_disabled = 1
+let g:completor_filetype_map = {
+  \ 'go': {'ft': 'lsp', 'cmd': 'gopls'}
+  \ }
 
 " vim-go
-
-" Enable gopls for definition and type information
 let g:go_def_mode = 'gopls'
 let g:go_info_mode = 'gopls'
-
-" Use goimports for formatting, which also handles imports
 let g:go_fmt_command = "goimports"
-
-" Automatically format and import on save
 let g:go_fmt_autosave = 1
-
-" Display type information in the status line
 let g:go_auto_type_info = 1
-
-" Enable diagnostics from gopls
 let g:go_diagnostics_enabled = 1
-
-" Set the timeout for gopls responses (in milliseconds)
 let g:go_gopls_timeout = 5000
 
-
-" fzf
+" fzf - Visual selection helpers
 function! s:getVisualSelection()
     let [line_start, column_start] = getpos("'<")[1:2]
     let [line_end, column_end] = getpos("'>")[1:2]
     let lines = getline(line_start, line_end)
-
-    if len(lines) == 0
-        return ""
-    endif
-
+    if len(lines) == 0 | return "" | endif
     let lines[-1] = lines[-1][:column_end - (&selection == "inclusive" ? 1 : 2)]
     let lines[0] = lines[0][column_start - 1:]
-
     return join(lines, "\n")
 endfunction
-
 vnoremap <silent><leader>f <Esc>:Ag <C-R>=<SID>getVisualSelection()<CR><CR>
 vnoremap <silent><leader>r <Esc>:Rg <C-R>=<SID>getVisualSelection()<CR><CR>
-
-"
-" End Plug Parameter setting
-"
