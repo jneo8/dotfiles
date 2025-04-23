@@ -73,11 +73,14 @@ install libsqlite3-dev
 install libncurses5-dev
 install python3-venv
 install python-is-python3
-#
+install pipx
+
 ## i3
 install i3
 install rofi
 install compton
+install i3lock
+install i3lock-fancy
 
 ## Media
 install alsa-utils
