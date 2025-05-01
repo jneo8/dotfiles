@@ -5,9 +5,10 @@
 "------------------------------------------------------------------------------
 " Directory Setup: Backup, Swap, Undo
 "------------------------------------------------------------------------------
-silent! call mkdir('~/.vim/dirs/tmp', 'p')
-silent! call mkdir('~/.vim/dirs/backups', 'p')
-silent! call mkdir('~/.vim/dirs/undos', 'p')
+silent !mkdir -p ~/.vim/dirs/tmp > /dev/null 2>&1
+silent !mkdir -p ~/.vim/dirs/backups > /dev/null 2>&1
+silent !mkdir -p ~/.vim/dirs/undos > /dev/null 2>&1
+
 
 set directory=~/.vim/dirs/tmp
 set backup
@@ -15,6 +16,7 @@ set backupdir=~/.vim/dirs/backups
 set undofile
 set undodir=~/.vim/dirs/undos
 set viminfo+=n~/.vim/dirs/viminfo
+
 
 "------------------------------------------------------------------------------
 " Plugin Manager - vim-plug
