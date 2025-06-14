@@ -81,6 +81,7 @@ install rofi
 install compton
 install i3lock
 install i3lock-fancy
+install i3blocks
 
 ## Media
 install alsa-utils

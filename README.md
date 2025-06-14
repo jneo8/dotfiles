@@ -17,9 +17,6 @@ make homebrew-install
 
 ## Application
 
-### Install i3-gaps
-make install-i3-gaps
-
 ### Install dropbox
 ./install-dropbox.sh
 
@@ -42,9 +39,9 @@ mackup restore
 make install-oh-my-zsh
 
 ## Language
-make install-rye
-make rye-set-default-python
-make rye-install-basic-pkgs
+make install-pipx
+make install uv
+make uv-install-basic-pkgs
 
 make install-gvm
 make install-rust

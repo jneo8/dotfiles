@@ -12,6 +12,7 @@ cp-mackup-config:  ## Copy mackup config to ~/
 	cp ./.mackup.cfg ~/
 
 add-i3-bin-cfg-to-mackup:  ## Add i3-bin cfg file to ~/.mackup
+	mkdir -p ~/.mackup
 	wget https://raw.githubusercontent.com/jneo8/mackup/feat/i3-bin/mackup/applications/i3-bin.cfg -O ~/.mackup/i3-bin.cfg
 
 .PHONY: install-mackup cp-mackup-config add-i3-bin-cfg-to-mackup
@@ -75,7 +76,7 @@ install-rust:  ## Install rust
 ##@ gvm
 
 install-gvm:  ## Install gvm
-	zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+	bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 
 PHONY: install-gvm
 
