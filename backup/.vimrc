@@ -32,7 +32,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'maralla/completor.vim'
+" Plug 'maralla/completor.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings' " optional: auto setup gopls
+
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'farmergreg/vim-lastplace'
 Plug 'mattn/emmet-vim'
@@ -145,17 +150,22 @@ let g:black_linelength = 79
 "   autocmd BufWritePre *.py Black
 " augroup END
 
-" completor.vim
-let g:completor_filetype_map = {
-  \ 'go': {'ft': 'lsp', 'cmd': 'gopls'}
-  \ }
-
 " vim-go
 let g:go_def_mode = 'gopls'
 let g:go_info_mode = 'gopls'
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = []
+let g:go_doc_keywordprg_enabled = 0
 let g:go_fmt_autosave = 1
 let g:go_gopls_timeout = 120
+let g:ale_linters = {
+\   'go': [],
+\}
+
+" asynccomplete.vim
+let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+let g:lsp_document_highlight_enabled = 0
+let g:asyncomplete_popup_delay = 500
 
 " fzf - Visual selection helpers
 function! s:getVisualSelection()
