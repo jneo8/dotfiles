@@ -88,6 +88,17 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+" Filetype-specific indentation
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType rust setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType go setlocal shiftwidth=4 softtabstop=4 noexpandtab
+autocmd FileType javascript,typescript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType html,css,xml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType yaml,yml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType json setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType sh,bash setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType vim setlocal shiftwidth=2 softtabstop=2 expandtab
+
 " Search
 set hlsearch
 set incsearch
@@ -172,6 +183,10 @@ let g:lsp_settings = {
  \    'disable': 1,
  \  },
  \}
+
+" PaperColor
+let g:PaperColor_Theme = 'jneo8'
+colorscheme PaperColor
 
 " fzf - Visual selection helpers
 function! s:getVisualSelection()
