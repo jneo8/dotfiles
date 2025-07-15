@@ -154,8 +154,6 @@ let g:black_linelength = 79
 let g:go_def_mode = 'gopls'
 let g:go_info_mode = 'gopls'
 let g:go_fmt_command = "goimports"
-let g:go_metalinter_enabled = []
-let g:go_doc_keywordprg_enabled = 0
 let g:go_fmt_autosave = 1
 let g:go_gopls_timeout = 120
 let g:ale_linters = {
@@ -166,6 +164,14 @@ let g:ale_linters = {
 let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
 let g:lsp_document_highlight_enabled = 0
 let g:asyncomplete_popup_delay = 500
+let g:lsp_settings = {
+ \  'gopls': {
+ \    'disable': 1,
+ \  },
+ \  'golangci-lint-langserver': {
+ \    'disable': 1,
+ \  },
+ \}
 
 " fzf - Visual selection helpers
 function! s:getVisualSelection()
