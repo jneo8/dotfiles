@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Variables
-XREMAP_VERSION="0.10.12" # Change this if there's a newer version
-XREMAP_URL="https://github.com/xremap/xremap/releases/download/v${XREMAP_VERSION}/xremap-linux-x86_64-wlroots.zip "
+XREMAP_URL="https://github.com/xremap/xremap/releases/download/v0.10.12/xremap-linux-x86_64-wlroots.zip"
 
 INSTALL_DIR="/usr/local/bin"
 SERVICE_DIR="$HOME/.config/systemd/user"
@@ -56,6 +55,7 @@ EOF
 
 # 5. Create custom systemd service
 echo "Creating systemd service..."
+mkdir -p ${SERVICE_DIR}
 cat <<EOF | sudo tee "$SERVICE_DIR/xremap.service"
 [Unit]
 Description=Xremap
@@ -72,8 +72,8 @@ WantedBy=default.target
 EOF
 
 # Reload systemd and enable service
-sudo systemctl daemon-reload
-sudo systemctl enable xremap.service --now
+sudo systemctl --user enable xremap.service
+sudo systemctl --user start xremap.service --now
 
 echo
 echo "Installation complete!"
