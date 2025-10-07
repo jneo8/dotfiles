@@ -30,6 +30,12 @@ keymap:
       Alt_L-j: down
       Alt_L-k: up
       Alt_L-l: right
+  - name: brightness control
+    remap:
+      KEY_BRIGHTNESSDOWN:
+        launch: ["brightnessctl", "set", "5%-"]
+      KEY_BRIGHTNESSUP:
+        launch: ["brightnessctl", "set", "5%+"]
 modmap:
   - name: Swap CapsLock and LeftCtrl
     remap:
@@ -46,6 +52,7 @@ if ! getent group "$GROUP_NAME" > /dev/null 2>&1; then
 fi
 
 # Add current user to input group
+# NOTE: User also needs to be added to the video group to get permission to run brightnessctl
 sudo usermod -aG "$GROUP_NAME" "$USER"
 
 # Set udev rules
@@ -62,7 +69,7 @@ Description=Xremap
 After=default.target
 
 [Service]
-ExecStart=${INSTALL_DIR}/xremap --watch %h/.config/xremap/config.yml
+ExecStart=${INSTALL_DIR}/xremap --device /dev/input/event2 --device /dev/input/event6 --watch %h/.config/xremap/config.yml
 Restart=always
 StandardOutput=journal
 StandardError=journal
