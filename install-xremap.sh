@@ -69,7 +69,7 @@ Description=Xremap
 After=default.target
 
 [Service]
-ExecStart=${INSTALL_DIR}/xremap --device /dev/input/event2 --device /dev/input/event6 --watch %h/.config/xremap/config.yml
+ExecStart=${INSTALL_DIR}/xremap --watch %h/.config/xremap/config.yml
 Restart=always
 StandardOutput=journal
 StandardError=journal
